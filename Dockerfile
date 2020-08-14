@@ -1,4 +1,3 @@
-# FROM gcr.io/google_appengine/nodejs
 FROM node:12
 LABEL name="mfe-renderer" \ 
     version="0.1" \
@@ -13,11 +12,6 @@ RUN apt-get update && apt-get install -y \
     google-chrome-stable \
     --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
-
-# Check to see if the the version included in the base runtime satisfies
-# '>=7.6', if not then do an npm install of the latest available
-# version that satisfies it.
-# RUN /usr/local/bin/install_node '>=7.6'
 
 COPY . /app/
 
